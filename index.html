@@ -10,11 +10,11 @@
             font-family: "AritaBuri";
             src: url("HTML_Assets/fonts/Arita-buriM.otf") format("opentype");
             }
+            
             body {
-                font-family: "Arita-buriM", Georgia, Serif;
+                font-family: "AritaBuri";
                 margin: 0;
                 height: 100vh;
-    /* Darkened background image */
                 background: 
                     url('HTML_Assets/bg/Angela.png') no-repeat center center;
                     background-size: cover;
@@ -26,20 +26,20 @@
             h4,
             h5,
             h6 {
-                font-family: "AritaBuri"";
+                font-family: "AritaBuri";
                 letter-spacing: 5px;
             }
-        .text-box {
-    position: absolute;      
-    top: 50%;                
-    left: 10%;               
-    transform: translateY(-50%); 
-    width: 35%;              
-    padding: 20px;           
-    background: rgba(0, 0, 0, 0.6); 
-    border-radius: 10px;     
-    color: yellow;           
-}
+            .text-box {
+                position: absolute;      
+                top: 50%;                
+                left: 10%;               
+                transform: translateY(-50%); 
+                width: 35%;              
+                padding: 20px;           
+                background: rgba(0, 0, 0, 0.6); 
+                border-radius: 10px;     
+                color: yellow;           
+            }
         </style>
     </head>
 <body>
@@ -47,7 +47,7 @@
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
         <div class="w3-bar w3-padding w3-card w3-text-yellow" style="background-color:#6B3E1E; letter-spacing:4px;">
-            <a href="#home" class="w3-bar-item w3-button">The Library</a>
+            <a href="index.html" class="w3-bar-item w3-button sfx">The Library</a>
             <!-- Right-sided navbar links. Hide them on small screens -->
             <div class="w3-right w3-hide-small">
                 <a href="Book1.html" class="w3-bar-item w3-button sfx"> Book 1 |</a>
@@ -78,6 +78,7 @@
 </div>
     </div>
 </body>
+    
 <script>
 
 const hoverSound = new Audio("HTML_Assets/sfx/hover.wav");
