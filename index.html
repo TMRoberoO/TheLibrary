@@ -89,22 +89,17 @@
 </body>
     
 <script>
-
-const hoverSound = new Audio("HTML_Assets/sfx/hover.wav");
-const clickSound = new Audio("HTML_Assets/sfx/click.wav");
-
+    
 document.querySelectorAll(".sfx").forEach(btn => {
     
     // Hover sound
     btn.addEventListener("mouseenter", () => {
-        hoverSound.currentTime = 0;
-        hoverSound.play();
+        new Audio("HTML_Assets/sfx/hover.wav").play();
     });
 
     // Click sound
     btn.addEventListener("click", () => {
-        clickSound.currentTime = 0;
-        clickSound.play();
+        new Audio("HTML_Assets/sfx/click.wav").play();
     });
 
 });
