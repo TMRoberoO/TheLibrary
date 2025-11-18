@@ -71,18 +71,39 @@
             <h1 class="w3-xxlarge">The Library</h1>
         </div>
     </header>
-
-    <div class="text-box" style="text-align: center;">
         
-    <h1>Loopings</h1>
-    <input type="number" id="inputValue" placeholder="Enter an integer...">
+    <section>
+         <div class="text-box" style="text-align: center;">
+            <h1>Simple Payroll Program</h1>
+            <div>
+                <input type="text" id="employeeName" placeholder="Employee Name">
+                <input type="number" id="daysWorked" placeholder="Days Worked">
+                <input type="number" id="dailyRate" placeholder="Daily Rate">
+                <input type="number" id="deduction" placeholder="Deduction Amount">
+            </div>
+            <div>
+                <button onclick="addEmployee()">Add Employee</button>
+                <button onclick="deleteEmployee()">Delete Employee</button>
+            </div>
 
-    <button onclick="computeLoopings()">Compute</button>
-
-    <p id="factorialResult" class="result"></p>
-    <p id="sumResult" class="result"></p>
-    <p id="averageResult" class="result"></p>
-        
+            <table class="payroll-table" id="payrollTable">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Employee Name</th>
+                        <th>Days Worked</th>
+                        <th>Daily Rate</th>
+                        <th>Gross Pay</th>
+                        <th>Deduction Amount</th>
+                        <th>Net Pay</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </section>
+   
     </div>
 </body>
     
@@ -93,8 +114,61 @@ document.querySelectorAll(".sfx").forEach(btn => {
    btn.addEventListener("mouseenter", () => {
         new Audio("HTML_Assets/sfx/hover.wav").play();
     });
+    
 });
 
+let payrollList = [];
 
+        function addEmployee() {
+            const name = document.getElementById("employeeName").value;
+            const days = parseFloat(document.getElementById("daysWorked").value);
+            const rate = parseFloat(document.getElementById("dailyRate").value);
+            const deduction = parseFloat(document.getElementById("deduction").value);
+
+            if (!name || isNaN(days) || isNaN(rate) || isNaN(deduction)) {
+                alert("Please fill all fields correctly!");
+                return;
+            }
+
+            const grossPay = days * rate;
+            const netPay = grossPay - deduction;
+
+            payrollList.push({name, days, rate, deduction, grossPay, netPay});
+            renderTable();
+
+            document.getElementById("employeeName").value = '';
+            document.getElementById("daysWorked").value = '';
+            document.getElementById("dailyRate").value = '';
+            document.getElementById("deduction").value = '';
+        }
+
+        function deleteEmployee() {
+            const lineNo = parseInt(prompt("Enter the line number to delete:"));
+            if (isNaN(lineNo) || lineNo < 1 || lineNo > payrollList.length) {
+                alert("Invalid line number!");
+                return;
+            }
+            payrollList.splice(lineNo - 1, 1);
+            renderTable();
+        }
+
+        function renderTable() {
+            const tbody = document.querySelector("#payrollTable tbody");
+            tbody.innerHTML = '';
+
+            payrollList.forEach((employee, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td class="payroll-glow">${employee.name}</td>
+                    <td class="payroll-glow">${employee.days}</td>
+                    <td class="payroll-glow">${employee.rate.toFixed(2)}</td>
+                    <td class="payroll-glow">${employee.grossPay.toFixed(2)}</td>
+                    <td class="payroll-glow">${employee.deduction.toFixed(2)}</td>
+                    <td class="payroll-glow">${employee.netPay.toFixed(2)}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
 </script>
 </html>
