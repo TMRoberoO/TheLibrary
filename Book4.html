@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Payroll</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+            @font-face {
+            font-family: "AritaBuri";
+            src: url("HTML_Assets/fonts/Arita-buriM.otf") format("opentype");
+            }
+            
+            body {
+                font-family: "AritaBuri";
+                margin: 0;
+                height: 100vh;
+                background: 
+                    url('HTML_Assets/bg/Netzach.png') no-repeat center center;
+                    background-size: cover;
+            }
 
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: "AritaBuri";
+                letter-spacing: 5px;
+            }
+            .text-box {
+                position: absolute;      
+                top: 50%;                
+                left: 32%;               
+                transform: translateY(-50%); 
+                width: 35%;              
+                padding: 20px;           
+                background: rgba(0, 0, 0, 0.6); 
+                border-radius: 10px;     
+                color: yellow;         
+            }
+        </style>
+    </head>
+<body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar w3-padding w3-card w3-text-yellow"
+         style="
+         background-image: url('HTML_Assets/bg/Manual_Default_background.png');
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         height: 60px; /* adjust bar height */
+         letter-spacing: 4px;
+         ">
+            <a href="index.html" class="w3-bar-item w3-button sfx">The Library</a>
+            <!-- Right-sided navbar links. Hide them on small screens -->
+            <div class="w3-right w3-hide-small">
+                <a href="Book1.html" class="w3-bar-item w3-button sfx"> Book 1 |</a>
+                <a href="Book2.html" class="w3-bar-item w3-button sfx"> Book 2 |</a>
+                <a href="Book3.html" class="w3-bar-item w3-button sfx"> Book 3 |</a>
+                <a href="Book4.html" class="w3-bar-item w3-button sfx"> Book 4 |</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+        <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+            <h1 class="w3-xxlarge">The Library</h1>
+        </div>
+    </header>
+
+    <div class="text-box" style="text-align: center;">
+        
+    <h1>Loopings</h1>
+    <input type="number" id="inputValue" placeholder="Enter an integer...">
+
+    <button onclick="computeLoopings()">Compute</button>
+
+    <p id="factorialResult" class="result"></p>
+    <p id="sumResult" class="result"></p>
+    <p id="averageResult" class="result"></p>
+        
+    </div>
+</body>
+    
+<script>
+
+document.querySelectorAll(".sfx").forEach(btn => {  
+    // Hover sound
+   btn.addEventListener("mouseenter", () => {
+        new Audio("HTML_Assets/sfx/hover.wav").play();
+    });
+});
+
+
+</script>
+</html>
