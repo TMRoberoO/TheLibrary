@@ -145,7 +145,7 @@ let payrollList = [];
         function deleteEmployee() {
             const lineNo = parseInt(prompt("Enter the line number to delete:"));
             if (isNaN(lineNo) || lineNo < 1 || lineNo > payrollList.length) {
-                alert("Invalid line number!");
+                alert("Invalid line number.");
                 return;
             }
             payrollList.splice(lineNo - 1, 1);
