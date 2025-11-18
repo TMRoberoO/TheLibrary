@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Simple Payroll</title>
+        <title>Payroll</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -126,7 +126,7 @@ let payrollList = [];
             const deduction = parseFloat(document.getElementById("deduction").value);
 
             if (!name || isNaN(days) || isNaN(rate) || isNaN(deduction)) {
-                alert("Please fill all fields correctly!");
+                alert("Please fill all fields correctly.");
                 return;
             }
 
